@@ -1,0 +1,13 @@
+import plagas.*
+describe "tests" {
+    const c1 = new Cucarachas(poblacion = 12, pesoPromedio = 8)
+    const c2 = new Cucarachas(poblacion = 12, pesoPromedio = 10)
+    
+  test "no transmite enfermedad una plaga de cucarachas de pesopromedio 8" {
+    assert.notThat(c1.transmiteEnfermedades())
+  }
+
+  test "transmite enfermedad una plaga de cucarachas de pesopromedio 10" {
+    assert.that(c2.transmiteEnfermedades())
+  }
+}

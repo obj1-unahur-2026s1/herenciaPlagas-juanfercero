@@ -2,15 +2,16 @@ class Barrios{
   const elementos = []
 
   method esCopado() {
-    elementos.count({e => e.esBueno()}) > elementos.count({e => not e.esBueno()})
+    return self.cantElementosBuenos() > (elementos.size() / 2)
   }
+  method cantElementosBuenos() = elementos.count({ e => e.esBueno() })
 }
 
-class Elementos{
+class Elemento{
   method esBueno()
 }
 
-class Hogar inherits Elementos{
+class Hogar inherits Elemento{
   const mugre
   const comfort
 
@@ -19,16 +20,16 @@ class Hogar inherits Elementos{
   }
 }
 
-class Huerta inherits Elementos{
+class Huerta inherits Elemento{
   const capacidadDeProduccion
-  var nivel
+  var nivelDeCosechas
 
   override method esBueno(){
-    return capacidadDeProduccion > nivel
+    return capacidadDeProduccion > nivelDeCosechas
   }
 }
 
-class Mascota inherits Elementos{
+class Mascota inherits Elemento{
   var salud
   const nivel = 250
 
